@@ -5,13 +5,16 @@ import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 
 const IMAGES = [
-  "/images/react2.webp",
-  "/images/javascript.webp",
-  "/images/typescript.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
+  "/images/react.png",
+  "/images/angular.png",
+  "/images/aws.png",
+  "/images/mongo.png",
+  "/images/mysql.png",
+  "/images/laravel.png",
+  "/images/wordpress.png",
+  "/images/docker.png",
+  "/images/restapi.png",
+
 ];
 
 function fibonacciSphere(samples: number, radius: number) {
