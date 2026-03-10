@@ -7,33 +7,38 @@ const projects = [
   {
     title: "Multi-Tenant HRMS",
     category: "SaaS Platform",
-    tools: "Laravel, Angular, MySQL, WebSockets, RBAC",
-    image: "/images/Solidx.png",
+    tools: "Laravel, Angular, React, MySQL, WebSockets, Webhooks, Razorpay, AWS",
+    image: "/images/hrms.png",
+    link:"https://hrms.acelucid.com/"
   },
+  
   {
-    title: "Employee Clock-In/Out System",
-    category: "Attendance Tracking",
-    tools: "Laravel, Angular, Real-time Updates, Automated Reporting",
-    image: "/images/radix.png",
-  },
-  {
-    title: "Internal Chat System",
-    category: "Real-time Communication",
-    tools: "WebSockets, MongoDB, Laravel Backend, Angular Frontend",
-    image: "/images/bond.png",
-  },
-  {
-    title: "Personality Prediction System",
+    title: "Personality Prediction Model",
     category: "NLP & Deep Learning",
-    tools: "Python, NumPy, Pandas, OCEAN Model, Data Visualization",
-    image: "/images/sapphire.png",
+    tools: "Python, TensorFlow, Recurrent Neural Networks",
+    image: "/images/personality-prediction.png",
+    link: "https://github.com/SurajBhandari5110/PersonalityPredictionModel/"
   },
   {
-    title: "Timetable Management System",
-    category: "Educational Platform",
-    tools: "React.js, SAP ID Integration, 500+ Users",
-    image: "/images/Maxlife.png",
+    title: "AI Screening",
+    category: "AI interview for first round, Live in product hunt",
+    tools: "Laravel, Angular, Real-time Updates, Automated Reporting",
+    image: "/images/ai-screening.png",
+    link: "https://www.producthunt.com/products/acelucid-ai-screening/launches/acelucid-ai-screening"
   },
+  // {
+  //   title: "Personality Prediction System",
+  //   category: "NLP & Deep Learning",
+  //   tools: "Python, NumPy, Pandas, OCEAN Model, Data Visualization",
+  //   image: "/images/sapphire.png",
+  // },
+  // {
+  //   title: "Timetable Management System",
+  //   category: "Educational Platform",
+  //   tools: "React.js, SAP ID Integration, 500+ Users",
+  //   image: "/images/Maxlife.png",
+    
+  // },
 ];
 
 const Work = memo(() => {
@@ -61,6 +66,15 @@ const Work = memo(() => {
       currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
+
+  const handleProjectClick = useCallback(
+    (link?: string) => {
+      if (link) {
+        window.open(link, "_blank");
+      }
+    },
+    []
+  );
 
   return (
     <div className="work-section" id="work">
@@ -97,7 +111,18 @@ const Work = memo(() => {
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div
+                  className={`carousel-slide ${project.link ? "carousel-slide-clickable" : ""}`}
+                  key={index}
+                  onClick={() => handleProjectClick(project.link)}
+                  role={project.link ? "button" : undefined}
+                  tabIndex={project.link ? 0 : undefined}
+                  onKeyPress={(e) => {
+                    if (project.link && e.key === "Enter") {
+                      handleProjectClick(project.link);
+                    }
+                  }}
+                >
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">

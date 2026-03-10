@@ -47,6 +47,20 @@
   padding: 50px 0;
 }
 
+.carousel-slide-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-slide-clickable:hover {
+  background: rgba(94, 234, 212, 0.05);
+}
+
+.carousel-slide-clickable:hover .carousel-details h4 {
+  color: var(--accentColor);
+  transition: color 0.3s ease;
+}
+
 .carousel-content {
   display: flex;
   align-items: center;
