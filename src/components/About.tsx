@@ -5,7 +5,6 @@ const About = memo(() => {
   return (
     <div className="about-section" id="about">
       <div className="about-me">
-        <h3 className="title">About Me</h3>
         <p className="para">
           Full Stack Developer with 1+ year of professional experience delivering 
           scalable SaaS applications and enterprise web solutions. Strong expertise 

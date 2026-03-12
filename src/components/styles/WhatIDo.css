@@ -256,13 +256,20 @@
     display: block;
   }
 
+  .what-box h2 {
+    font-size: 32px;
+    line-height: 38px;
+    margin: 20px 0;
+    margin-bottom: 30px;
+  }
+
   /* Ensure the cards container is visible (base has display:none) */
   .what-box-in {
     display: flex;
     flex-direction: column;
     height: auto;
     margin-left: 0;
-    gap: 12px;
+    gap: 16px;
     overflow: visible;
   }
 
@@ -270,6 +277,75 @@
     width: 100%;
     height: auto;
     min-height: auto;
+    padding: 24px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .what-noTouch:hover,
+  .what-content-active {
+    min-height: auto;
+    padding: 24px;
+    background: rgba(94, 234, 212, 0.08);
+  }
+
+  .what-noTouch:hover ~ .what-content,
+  .what-box-in:hover .what-noTouch:not(:hover),
+  .what-content.what-sibling {
+    padding: 24px;
+  }
+
+  .what-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .what-content h4 {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+
+  .what-content p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 8px 0;
+  }
+
+  .what-content h5 {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .what-content-flex {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .what-tags {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .what-border1,
+  .what-border2,
+  .what-border1 svg,
+  .what-border2 svg,
+  .what-arrow,
+  .what-corner {
+    display: none;
+  }
+
+  .what-content::before,
+  .what-content::after,
+  .what-corner::before,
+  .what-corner::after {
+    display: none;
   }
 }
 

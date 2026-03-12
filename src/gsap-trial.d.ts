@@ -13,3 +13,29 @@ declare module 'gsap-trial/SplitText' {
     lines?: Element[];
   }
 }
+
+declare module 'gsap-trial/ScrollSmoother' {
+  interface ScrollSmootherConfig {
+    wrapper?: string | Element;
+    content?: string | Element;
+    smooth?: number;
+    speed?: number;
+    effects?: boolean;
+    autoResize?: boolean;
+    ignoreMobileResize?: boolean;
+    onUpdate?: (obj: any) => void;
+    onPress?: () => void;
+    onRelease?: () => void;
+    [key: string]: any;
+  }
+
+  export class ScrollSmoother {
+    constructor(config?: ScrollSmootherConfig);
+    static create(config?: ScrollSmootherConfig): ScrollSmoother;
+    scrollTop(value?: number): number | undefined;
+    paused(value?: boolean): boolean | undefined;
+    getVelocity(): number;
+    refresh(): this;
+    kill(): this;
+  }
+}

@@ -166,10 +166,7 @@
 
 /* ── Dot Indicators ── */
 .carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 35px;
+  display: none;
 }
 
 .carousel-dot {
@@ -321,15 +318,11 @@
   }
 
   .carousel-dots {
-    margin-top: 25px;
-    gap: 8px;
-    justify-content: center;
+    display: none;
   }
 
   .carousel-dot {
-    width: 8px;
-    height: 8px;
-    cursor: pointer;
+    display: none;
   }
 
   .work-image img {
