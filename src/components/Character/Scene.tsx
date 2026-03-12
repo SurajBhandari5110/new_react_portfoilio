@@ -27,12 +27,15 @@ const Scene = () => {
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
 
+      const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true,
+        antialias: !isMobile, // Disable antialias on mobile for performance
+        powerPreference: isMobile ? "low-power" : "high-performance",
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setPixelRatio(isMobile ? 1 : window.devicePixelRatio); // Lower pixel ratio on mobile
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);

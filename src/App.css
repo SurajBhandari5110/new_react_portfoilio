@@ -9,6 +9,23 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .section-container {
+    width: calc(100% - 30px);
+    max-width: var(--cWidth);
+  }
+}
+
+/* Tablet Breakpoint: 481px to 900px */
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+  .section-container {
+    width: calc(100% - 40px);
+    max-width: var(--cWidth);
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .section-container {
     width: 1200px;

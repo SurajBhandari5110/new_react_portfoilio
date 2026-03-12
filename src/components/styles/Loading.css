@@ -411,3 +411,62 @@
     font-size: 18px;
   }
 }
+
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .loading-screen {
+    padding-top: max(10px, env(safe-area-inset-top));
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  .loading-button {
+    padding: 15px 35px;
+    font-size: 14px;
+  }
+
+  .loading-wrap {
+    --Lsize: 100px;
+  }
+
+  .loading-content {
+    font-size: 14px;
+  }
+
+  .loading-content-in {
+    width: var(--Lsize);
+  }
+
+  .loading-content2 {
+    width: var(--Lsize);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .loading-content span {
+    font-size: 12px;
+  }
+
+  .loaderGame-container {
+    transform: scale(0.25);
+  }
+
+  .loader-title {
+    font-size: 12px;
+  }
+
+  .loading-marquee {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .loading-marquee span {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  
+  .loading-clicked {
+    min-width: calc(100vw + 1000px);
+    border-radius: 1500px;
+    min-height: calc(100vh + 200px);
+  }
+}

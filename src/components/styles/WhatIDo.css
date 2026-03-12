@@ -239,6 +239,62 @@
   border: 1px solid #ffffff50;
   border-radius: 30px;
 }
+
+/* Mobile Breakpoint: 480px and below — detailed styles in mobile.css */
+@media only screen and (max-width: 480px) {
+  .whatIDO {
+    height: auto;
+    padding: 50px 20px;
+    margin-top: 0;
+    display: block;
+    place-items: unset;
+  }
+
+  .what-box {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Ensure the cards container is visible (base has display:none) */
+  .what-box-in {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-left: 0;
+    gap: 12px;
+    overflow: visible;
+  }
+
+  .what-content {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+}
+
+/* Tablet Breakpoint: 481px to 550px */
+@media only screen and (min-width: 481px) and (max-width: 550px) {
+  .whatIDO {
+    height: auto;
+    padding: 50px 0px;
+  }
+
+  .what-box h2 {
+    font-size: 32px;
+    line-height: 35px;
+    margin: 30px 0;
+  }
+
+  .what-box {
+    width: 100%;
+  }
+
+  .what-content h3 {
+    font-size: 20px;
+  }
+}
+
 @media only screen and (max-width: 1600px) {
   .what-box h2 {
     margin-right: 18%;

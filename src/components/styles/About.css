@@ -30,6 +30,62 @@
   letter-spacing: 1px;
 }
 
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .about-section {
+    height: auto;
+    padding: 60px 20px;
+    margin-top: 0;
+    background: transparent;
+  }
+
+  .about-me {
+    padding: 0;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .about-me h3 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: var(--accentColor);
+  }
+
+  .about-me p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.3px;
+    color: #ccc;
+  }
+}
+
+/* Tablet Breakpoint: 481px to 600px */
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+  .about-section {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .about-me {
+    padding: 40px 0px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .about-me h3 {
+    font-size: 18px;
+  }
+
+  .about-me p {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;

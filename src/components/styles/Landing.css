@@ -230,6 +230,149 @@
   letter-spacing: 2px;
 }
 
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .landing-section {
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .landing-container {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: max(75px, calc(65px + env(safe-area-inset-top))) 24px 20px 24px;
+  }
+
+  .landing-intro {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    margin: 0 0 8px 0;
+    z-index: 2;
+    order: 1;
+  }
+
+  .landing-intro h2 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: var(--accentColor);
+    font-weight: 600;
+  }
+
+  .landing-intro h1 {
+    font-size: 44px;
+    line-height: 48px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .landing-intro h1 span {
+    color: var(--accentColor);
+    display: block;
+  }
+
+  .landing-info {
+    position: relative;
+    bottom: auto;
+    top: auto;
+    transform: none;
+    right: auto;
+    left: auto;
+    text-align: center;
+    padding: 0;
+    margin: 16px 0 0 0;
+    z-index: 2;
+    order: 3;
+  }
+
+  .landing-info h3 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: var(--accentColor);
+    font-weight: 600;
+  }
+
+  .landing-info h2 {
+    font-size: 22px;
+    line-height: 26px;
+    margin-top: 0;
+    margin-left: 0 !important;
+    letter-spacing: 1px;
+    gap: 6px;
+    font-weight: 700;
+    justify-content: center;
+  }
+
+  /* Fix the animated "Developer / Engineer" title — center it, remove desktop overflow */
+  h2.landing-info-h2 {
+    font-size: 28px;
+    width: 100% !important;     /* was 120% on desktop — caused overflow */
+    margin-left: 0 !important;  /* was -5px on desktop */
+    margin: 0 auto !important;
+    text-align: center;
+  }
+
+  /* Remove the gradient mask that was hiding the bottom of the animated text */
+  .landing-info-h2::after {
+    display: none !important;
+  }
+
+  .landing-circle1 {
+    width: 120px;
+    height: 120px;
+    opacity: 0.3;
+  }
+
+  .landing-circle2 {
+    display: none;
+  }
+
+  .character-model {
+    display: none !important;
+    height: 0;
+    visibility: hidden;
+  }
+
+  .character-model::after {
+    display: none;
+  }
+
+  .character-model::before {
+    display: none;
+  }
+
+  .character-hover {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .character-rim {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  .nav-fade {
+    display: none;
+  }
+}
+
 .landing-h2-info-1 {
   position: absolute;
   top: 0;
@@ -263,6 +406,8 @@ h2.landing-info-h2 {
   top: 0;
   left: 0;
 }
+
+/* duplicate mobile block removed — handled by the block above */
 
 @media screen and (min-width: 500px) {
   .landing-circle2 {
@@ -396,4 +541,52 @@ h2.landing-info-h2 {
   h2.landing-info-h2 {
     font-size: 75px;
   }
+}
+
+/* ── Mobile Profile Image ──
+   In-flow flex child: sits between intro and info in the flex column.
+   Hidden on desktop, visible only on <=480px.
+*/
+.mobile-profile-container {
+  display: none; /* desktop: hidden */
+}
+
+@media only screen and (max-width: 480px) {
+  .mobile-profile-container {
+    display: flex;
+    position: relative;   /* NOT absolute */
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+    order: 2;             /* sits between intro (1) and info (3) */
+    flex: 1;
+    min-height: 180px;
+    max-height: 46vmax;
+    overflow: hidden;
+  }
+
+  .mobile-profile-image {
+    width: 78%;
+    max-width: 290px;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 1;
+    filter: drop-shadow(0 -8px 24px rgba(94, 234, 212, 0.3));
+    animation: mobileImgFadeIn 0.9s ease-out both;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .mobile-profile-image {
+    width: 72%;
+    max-width: 240px;
+  }
+}
+
+@keyframes mobileImgFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

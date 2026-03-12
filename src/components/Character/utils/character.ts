@@ -13,6 +13,8 @@ const setCharacter = (
   dracoLoader.setDecoderPath("/draco/");
   loader.setDRACOLoader(dracoLoader);
 
+  const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+
   const loadCharacter = () => {
     return new Promise<GLTF | null>(async (resolve, reject) => {
       try {
@@ -27,7 +29,12 @@ const setCharacter = (
           blobUrl,
           async (gltf) => {
             character = gltf.scene;
-            await renderer.compileAsync(character, camera, scene);
+            
+            // Skip async compilation on mobile to improve performance
+            if (!isMobile) {
+              await renderer.compileAsync(character, camera, scene);
+            }
+            
             character.traverse((child: any) => {
               if (child.isMesh) {
                 const mesh = child as THREE.Mesh;

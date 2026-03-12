@@ -142,6 +142,165 @@
   }
 }
 
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+
+  /* ── Section wrapper ── */
+  .career-section {
+    align-items: flex-start !important;
+    place-items: start !important;
+    justify-content: flex-start !important;
+    padding: 60px 24px !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  .career-container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* ── Section heading "My career & experience" on one line ── */
+  .career-section h2 br {
+    display: none !important;
+  }
+
+  .career-section h2 {
+    font-size: 22px !important;
+    line-height: 28px !important;
+    margin: 24px 0 !important;
+    font-weight: 800 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: #fff !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  .career-section h2 > span {
+    color: var(--accentColor) !important;
+    -webkit-text-fill-color: var(--accentColor) !important;
+    font-weight: 800 !important;
+  }
+
+  /* ── Info list ── */
+  .career-info {
+    width: 100% !important;
+    margin: 0 !important;
+    position: relative !important;
+  }
+
+  .career-timeline {
+    display: none !important;
+  }
+
+  /* ── Each entry card ── */
+  .career-info-box {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 18px !important;
+    margin-bottom: 12px !important;
+    background: rgba(94, 234, 212, 0.05) !important;
+    border: 1px solid rgba(94, 234, 212, 0.12) !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .career-info-box:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* ── Role row: title + badge ── */
+  .career-info-in {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .career-role {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* Job title */
+  .career-info h4 {
+    font-size: 15px !important;
+    line-height: 20px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: #fff !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Company */
+  .career-info h5 {
+    font-size: 12px !important;
+    margin: 3px 0 0 0 !important;
+    color: var(--accentColor) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2px !important;
+    text-transform: none !important;
+  }
+
+  /* Period pill badge */
+  .career-info h3 {
+    font-size: 10px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    color: var(--accentColor) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    padding: 4px 8px !important;
+    border: 1px solid rgba(94, 234, 212, 0.3) !important;
+    border-radius: 20px !important;
+    background: rgba(94, 234, 212, 0.08) !important;
+  }
+
+  /* Description */
+  .career-info-box p {
+    font-size: 13px !important;
+    line-height: 20px !important;
+    width: 100% !important;
+    font-weight: 400 !important;
+    color: #9d9aaa !important;
+    margin: 2px 0 0 0 !important;
+  }
+}
+
+
+
+/* Tablet Breakpoint: 481px to 600px */
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+  .career-section h2 {
+    font-size: 36px;
+    line-height: 36px;
+    margin-bottom: 60px;
+  }
+
+  .career-info h3 {
+    font-size: 30px;
+  }
+
+  .career-info h4 {
+    font-size: 18px;
+  }
+
+  .career-info h5 {
+    font-size: 15px;
+  }
+}
+
 @media only screen and (max-width: 1400px) {
   .career-section h2 {
     font-size: 50px;

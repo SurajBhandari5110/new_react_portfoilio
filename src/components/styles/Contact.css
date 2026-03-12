@@ -114,3 +114,132 @@ a.contact-social {
     width: calc(100% - 25px);
   }
 }
+
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .contact-section {
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 0;
+    background: linear-gradient(to top, rgba(10, 10, 15, 0.95), rgba(10, 10, 15, 0.9));
+    border-top: 1px solid rgba(94, 234, 212, 0.15);
+  }
+
+  .contact-container {
+    width: 100%;
+    padding: 40px 20px max(40px, env(safe-area-inset-bottom)) 20px;
+  }
+
+  .contact-section h3 {
+    font-size: 0;
+    display: none;
+  }
+
+  .contact-flex {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .contact-box {
+    padding-bottom: 25px;
+  }
+
+  .contact-box:not(:last-child) {
+    border-bottom: 1px solid rgba(94, 234, 212, 0.1);
+  }
+
+  .contact-flex h4 {
+    margin: 0 0 12px 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accentColor);
+    font-weight: 600;
+  }
+
+  .contact-flex p {
+    font-size: 14px;
+    margin: 8px 0;
+    font-weight: 400;
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  .contact-box a {
+    color: #eee;
+    text-decoration: none;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .contact-box a:active {
+    color: var(--accentColor);
+  }
+
+  .contact-box h2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #eee;
+    line-height: 1.6;
+    margin: 20px 0 0 0;
+  }
+
+  .contact-box h2 span {
+    color: var(--accentColor);
+  }
+
+  .contact-box h5 {
+    font-size: 12px;
+    gap: 6px;
+    color: #999;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+  }
+
+  a.contact-social {
+    font-size: 19px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #eee;
+    margin-right: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a.contact-social:active {
+    color: var(--accentColor);
+    transform: translateY(-2px);
+  }
+}
+
+/* Tablet Breakpoint: 481px to 900px */
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+  .contact-section {
+    margin-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .contact-section h3 {
+    font-size: 40px;
+  }
+
+  .contact-flex {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .contact-box h2 {
+    font-size: 18px;
+  }
+
+  a.contact-social {
+    font-size: 22px;
+  }
+
+  .contact-container {
+    width: calc(100% - 30px);
+  }
+}

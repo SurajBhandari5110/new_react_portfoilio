@@ -81,6 +81,186 @@ div.resume-button span {
   width: 100%;
   z-index: 99999;
 }
+
+/* Mobile Breakpoint: 480px and below */
+@media only screen and (max-width: 480px) {
+  .icons-section {
+    width: 100%;
+    bottom: 0;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+    padding-top: 20px;
+    background: linear-gradient(to top, rgba(10, 10, 15, 0.8), transparent 100%);
+  }
+
+  .social-icons {
+    display: flex !important;
+    left: 50%;
+    bottom: auto;
+    transform: translateX(-50%);
+    gap: 20px;
+    padding: 15px 20px;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .social-icons span {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid rgba(94, 234, 212, 0.3);
+    background: rgba(94, 234, 212, 0.05);
+    position: relative;
+  }
+
+  .social-icons span:active {
+    transform: scale(0.92);
+    background: rgba(94, 234, 212, 0.15);
+    border-color: rgba(94, 234, 212, 0.6);
+  }
+
+  .social-icons span:active::after {
+    animation: pulse-ring 0.6s ease-out;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgba(94, 234, 212, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba(94, 234, 212, 0);
+    }
+  }
+
+  .social-icons a {
+    font-size: 20px;
+    color: rgba(94, 234, 212, 0.7);
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icons span:active a {
+    color: var(--accentColor);
+  }
+
+  /* ── Resume Button: vertical side-tab pinned to right-center edge ── */
+  .resume-button {
+    display: flex !important;
+    position: fixed !important;
+    right: 0 !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    /* Vertical text */
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    /* Sizing */
+    padding: 18px 10px !important;
+    width: auto !important;
+    /* Styling */
+    background: rgba(10, 14, 23, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(94, 234, 212, 0.35) !important;
+    border-right: none !important;
+    border-radius: 8px 0 0 8px !important;
+    color: var(--accentColor) !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2.5px !important;
+    line-height: 1 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    z-index: 998 !important;
+    /* Slide-in from right */
+    animation: resumeTabSlideIn 0.6s 0.8s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease !important;
+    /* Reset rotation from desktop */
+    rotate: 0deg !important;
+  }
+
+  .resume-button:active {
+    background: rgba(94, 234, 212, 0.15) !important;
+    border-color: var(--accentColor) !important;
+    transform: translateY(-50%) translateX(-3px) !important;
+  }
+
+  /* Hide the icon span — only show text label vertically */
+  a.resume-button span,
+  .resume-button > span {
+    display: none !important;
+  }
+
+  /* Also hide the HoverLinks wrapper if it adds extra markup */
+  .resume-button .hover-links-text,
+  .resume-button [class*="hover"] {
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2.5px !important;
+    color: var(--accentColor) !important;
+  }
+
+  @keyframes resumeTabSlideIn {
+    from { opacity: 0; transform: translateY(-50%) translateX(100%); }
+    to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+  }
+
+  /* Prevent hover-link duplicate-text animation inside vertical resume tab */
+  a.resume-button .hover-link,
+  a.resume-button .hover-in {
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    overflow: visible !important;
+    height: auto !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2.5px !important;
+    color: var(--accentColor) !important;
+  }
+
+  /* Hide the duplicate text div inside hover-in */
+  a.resume-button .hover-in > div {
+    display: none !important;
+  }
+
+  .check-line {
+    display: none;
+  }
+}
+
+/* Tablet Breakpoint: 481px to 900px */
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+  .social-icons {
+    display: flex !important;
+    left: -18px;
+    gap: 12px;
+  }
+
+  .social-icons span {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+
+  .resume-button {
+    transform: translateX(100%) rotateZ(-90deg);
+    bottom: 30px;
+  }
+}
+
 @media only screen and (min-width: 900px) {
   .social-icons {
     display: flex;

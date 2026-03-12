@@ -10,6 +10,23 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
+  // Safety timeout to prevent infinite loading on mobile
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
+    const timeout = isMobile ? 10000 : 20000; // 10s on mobile, 20s on desktop
+    
+    const safetyTimer = setTimeout(() => {
+      if (!isLoaded) {
+        setLoaded(true);
+        setTimeout(() => {
+          setIsLoaded(true);
+        }, 800);
+      }
+    }, timeout);
+
+    return () => clearTimeout(safetyTimer);
+  }, [isLoaded]);
+
   if (percent >= 100) {
     setTimeout(() => {
       setLoaded(true);
@@ -42,6 +59,16 @@ const Loading = ({ percent }: { percent: number }) => {
     target.style.setProperty("--mouse-y", `${y}px`);
   }
 
+  // Mobile tap to complete loading
+  function handleTap() {
+    if (percent > 70) {
+      setLoaded(true);
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 1000);
+    }
+  }
+
   return (
     <>
       <div className="loading-header">
@@ -69,6 +96,7 @@ const Loading = ({ percent }: { percent: number }) => {
         <div
           className={`loading-wrap ${clicked && "loading-clicked"}`}
           onMouseMove={(e) => handleMouseMove(e)}
+          onClick={handleTap}
         >
           <div className="loading-hover"></div>
           <div className={`loading-button ${loaded && "loading-complete"}`}>
@@ -81,7 +109,7 @@ const Loading = ({ percent }: { percent: number }) => {
               <div className="loading-box"></div>
             </div>
             <div className="loading-content2">
-              <span>Welcome</span>
+              <span>{percent > 70 ? "Tap to enter" : "Welcome"}</span>
             </div>
           </div>
         </div>
@@ -94,23 +122,24 @@ export default Loading;
 
 export const setProgress = (setLoading: (value: number) => void) => {
   let percent: number = 0;
+  const isMobile = /iPhone|iPad|Android|Mobile/i.test(navigator.userAgent);
 
   let interval = setInterval(() => {
     if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
+      let rand = Math.round(Math.random() * (isMobile ? 8 : 5));
       percent = percent + rand;
       setLoading(percent);
     } else {
       clearInterval(interval);
       interval = setInterval(() => {
-        percent = percent + Math.round(Math.random());
+        percent = percent + Math.round(Math.random() * 2);
         setLoading(percent);
-        if (percent > 91) {
+        if (percent > (isMobile ? 85 : 91)) {
           clearInterval(interval);
         }
-      }, 2000);
+      }, isMobile ? 1000 : 2000);
     }
-  }, 100);
+  }, isMobile ? 50 : 100);
 
   function clear() {
     clearInterval(interval);
